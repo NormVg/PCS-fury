@@ -36,7 +36,7 @@ def download_file(file , id=None):
     print(filee['alternateLink'])
     file_name = os.path.basename(filee['title'])
     filee.GetContentFile(file_name)
-    os.rename(file_name , f"static\cloud\{file_name}")
+    os.rename(file_name , f"static/cloud/{file_name}")
     return filee['title']
 
 
