@@ -45,7 +45,7 @@ def send_file_cloud():
     id = request.args.get("id")
     if not id : id = None
     title = myGDrive.download_file(file,id=id)
-    clear_cloud()
+    # clear_cloud()
     return send_file("static/cloud/"+title)
     
 
