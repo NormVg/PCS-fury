@@ -6,7 +6,7 @@ from plugs.service_management import *
 import tempfile
 from io import BytesIO
 
-UPLOAD_FOLDER = 'static\\temp\\'
+UPLOAD_FOLDER = 'static/temp/'
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER

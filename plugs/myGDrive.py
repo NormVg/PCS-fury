@@ -17,7 +17,7 @@ drive = GoogleDrive(gauth)
 
 def upload_file(file):
     filee = drive.CreateFile({"parents":[{"id":'1OYdiWyPzTqdamyresLkRbetn9wC1xZFN'}]})
-    filee.SetContentFile(file,)
+    filee.SetContentFile(file)
     file_name = os.path.basename(file)
     filee['title'] = file_name
     filee.Upload()
