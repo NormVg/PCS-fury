@@ -55,5 +55,5 @@ def list_file():
     data = myGDrive.get_file_list()
     return jsonify(data)
 
-
-app.run(port=2004,debug=True)
+if __name__=="__main__":
+    app.run(port=2004,debug=True)
