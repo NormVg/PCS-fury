@@ -26,7 +26,7 @@ def create_file():
     myGDrive.create_file(name=name,data=content)
     return "200"
 
-@app.route("/api/cloud-upload", methods=('POST'))
+@app.route("/api/cloud-upload", methods=['POST'])
 def upload_file():
     data = []
     files = request.files.getlist('files')
