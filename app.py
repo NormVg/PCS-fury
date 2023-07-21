@@ -1,10 +1,9 @@
-from flask import Flask, request, render_template, url_for, redirect, flash, jsonify, send_file
+from flask import Flask, request, jsonify, send_file
 from werkzeug.utils import secure_filename
 import os
 import plugs.myGDrive as myGDrive
 from plugs.service_management import *
-import tempfile
-from io import BytesIO
+
 
 UPLOAD_FOLDER = 'static/temp/'
 
@@ -44,9 +43,9 @@ def send_file_cloud():
     file = request.args.get("file")
     id = request.args.get("id")
     if not id : id = None
-    title = myGDrive.download_file(file,id=id)
+    link = myGDrive.download_file(file,id=id)
     # clear_cloud()
-    return send_file("static/cloud/"+title)
+    return jsonify({"url":link})
     
 
 @app.route("/api/cloud-list")

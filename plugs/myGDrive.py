@@ -31,15 +31,16 @@ def download_file(file , id=None):
             if file == f["title"]:
                 id = f["id"]
                 break
-    filee = drive.CreateFile({"id":id})
-    print('Downloading file %s from Google Drive' % filee['title'])
-    print(filee['alternateLink'])
-    file_name = os.path.basename(filee['title'])
-    filee.GetContentFile(file_name)
-    os.rename(file_name , f"static/cloud/{file_name}")
-    return filee['title']
+    # filee = drive.CreateFile({"id":id})
+    # print('Downloading file %s from Google Drive' % filee['title'])
+    # print(filee['alternateLink'])
+    # file_name = os.path.basename(filee['title'])
+    # filee.GetContentFile(file_name)
+    # os.rename(file_name , f"static/cloud/{file_name}")
+    link = f"https://www.googleapis.com/drive/v3/files/{id}?alt=media&key=AIzaSyBwi8dTMiaHUIy6mXuv0DmZyfuIkZqfO5A"
+    return link
 
-
+#https://www.googleapis.com/drive/v3/files/1K_c0NYWOWuuNX4rrIsHzZvtZkoSifWQm?alt=media&key=AIzaSyBwi8dTMiaHUIy6mXuv0DmZyfuIkZqfO5A
 def create_file(name,data):
     file = drive.CreateFile({'title': name,"parents":[{"id":'1OYdiWyPzTqdamyresLkRbetn9wC1xZFN'}]}) 
     # drive.auth.service.permissions().create(fileId=file['id'], body=permission).execute()
