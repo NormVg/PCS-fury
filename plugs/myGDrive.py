@@ -10,7 +10,7 @@ permission = {
 }
 import os
 gauth = GoogleAuth()
-gauth.LoadCredentialsFile("cred.json")
+gauth.LoadCredentialsFile("creds/cred.json")
 
 drive = GoogleDrive(gauth)
 
